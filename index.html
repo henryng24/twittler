@@ -16,37 +16,23 @@
         $('<h1> Twittler </h1>').appendTo($body);
         $('<button> Display new twitts </button>').appendTo($body);
         $('<div id="paragraphs"> </div>').appendTo($body)
-        var index = streams.home.length - 1;
+        var index = 0;
 
-        while(index >= 0){
+        while(index < streams.home.length-1){
           var tweet = streams.home[index];
           var time = new Date;
           var $tweet = $('<p>'+'<span class="user">' + '@' + tweet.user + '</span>' + '<br>' + tweet.message + '</br>'+ time +'</p>');
           $tweet.appendTo($('div'));
-
-          // $('.user').on('click', function() {
-          //   var userIndex = streams.users.([tweet.user]).length - 1;
-          //     while(userIndex >= 0){
-          //     var userTweet = streams.users.([tweet.user])[userIndex];
-          //     var userTime = new Date;
-          //     var $userTweet = $('<p>'+'<span class="user">' + '@' + tweet.user + '</span>' + '<br>' + userTweet + '</br>'+ userTime +'</p>');
-          //     $userTweet.appendTo($('div'));
-          //     index -= 1;
-          //   }
-          // })
-
-          index -= 1;
+          index += 1;
         }
-
-
+        
         $('button').on('click', function() {
-        var index = streams.home.length - 1;
-          while(index >= 0){
+          while(index < streams.home.length-1){
             var tweet = streams.home[index];
             var time = new Date;
             var $tweet = $('<p>'+'<span class="user">' + '@' + tweet.user + '</span>' + '<br>' + tweet.message + '</br>'+ time +'</p>');
             $("#paragraphs p:first-child").before($tweet);
-            index -= 1;
+            index += 1;
         }
         });
 
