@@ -22,20 +22,7 @@
           var tweet = streams.home[index];
           var time = new Date;
           var $tweet = $('<p>'+'@' + '<span class="user">' + '<button class="userbutton">' + tweet.user + '</button>' + '</span>' + '<br>' + tweet.message + '</br>'+ time +'</p>');
-          $tweet.appendTo($('div'));
-
-        $('.userbutton').on('click', function() {
-          $('p').remove();
-          var userIndex = 0;
-          while (userIndex < streams.users.shawndrost.length-1) {
-            var userTweet = streams.users.shawndrost[userIndex];
-            var userTime = new Date;
-            var $userTweet = $('<p>' +'@' +'<span class="user">' + "shawndrost" + '</span>' + '<br>' + tweet.message + '</br>' + time + '</p>');
-            $userTweet.appendTo($('div'));
-            userIndex += 1;
-          }
-        });
-
+          $('#paragraphs').prepend($tweet);
           index += 1;
         }
 
@@ -45,25 +32,21 @@
             var time = new Date;
             var $tweet = $('<p>'+'@' + '<span class="user">' + '<button class="userbutton">'+ tweet.user + '</button>' +'</span>' + '<br>' + tweet.message + '</br>'+ time +'</p>');
             $("#paragraphs p:first-child").before($tweet);
+            index += 1;
+        }
+        });
 
-        $('.userbutton').on('click', function() {
+        $('#paragraphs').on('click','.userbutton', function() {
           $('p').remove();
           var userIndex = 0;
           while (userIndex < streams.users.shawndrost.length-1) {
             var userTweet = streams.users.shawndrost[userIndex];
             var userTime = new Date;
             var $userTweet = $('<p>' +'@' +'<span class="user">' + "shawndrost" + '</span>' + '<br>' + tweet.message + '</br>' + time + '</p>');
-            $userTweet.appendTo($('div'));
+            $('#paragraphs').prepend($userTweet);
             userIndex += 1;
           }
         });
-
-
-            index += 1;
-        }
-        });
-
-
 
       });
 
