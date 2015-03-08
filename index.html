@@ -38,11 +38,11 @@
 
         $('#paragraphs').on('click','.userbutton', function() {
           $('p').remove();
+          var selectedUser = $(this).text();
           var userIndex = 0;
-          while (userIndex < streams.users.shawndrost.length-1) {
-            var userTweet = streams.users.shawndrost[userIndex];
-            var userTime = new Date;
-            var $userTweet = $('<p>' +'@' +'<span class="user">' + "shawndrost" + '</span>' + '<br>' + tweet.message + '</br>' + time + '</p>');
+          while (userIndex < streams.users[selectedUser].length-1) {
+            var userTweet = streams.users[selectedUser][userIndex];
+            var $userTweet = $('<p>' +'@' +'<span class="user">' + selectedUser + '</span>' + '<br>' + userTweet.message + '</br>' + time + '</p>');
             $('#paragraphs').prepend($userTweet);
             userIndex += 1;
           }
